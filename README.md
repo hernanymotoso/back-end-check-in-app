@@ -2,7 +2,7 @@
 
 ## FRs (Functional requirements) 
 
-- [ ] It should be possible to register;
+- [x] It should be possible to register;
 - [ ] It should be possible to autenticate;
 - [ ] It should be possible to get an authenticated user profile; 
 - [ ] It should be possible to obtain the number of check-ins performed by the logged in user; 
@@ -15,7 +15,7 @@
 
 ## BRs (Business rules)
 
-- [ ] The user should not be able to register with a duplicate e-mail;
+- [X] The user should not be able to register with a duplicate e-mail;
 - [ ] The user cannot make 2 check-ins on the same day;
 - [ ] The user cannot check-in if he is not near(100m) the gym;  
 - [ ] Check-in can only be validated up to 20 minutes after creation;
