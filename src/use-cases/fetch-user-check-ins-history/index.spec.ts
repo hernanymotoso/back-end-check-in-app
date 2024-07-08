@@ -1,0 +1,44 @@
+import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-ins-repository'
+import { beforeEach, describe, expect, it } from 'vitest'
+import { FetchUserCheckInsUseCase } from '.'
+
+let checkInsRepository: InMemoryCheckInsRepository
+let sut: FetchUserCheckInsUseCase
+
+describe('Fetch Usere Check Ins Use Case', () => {
+  beforeEach(async () => {
+    checkInsRepository = new InMemoryCheckInsRepository()
+    sut = new FetchUserCheckInsUseCase(checkInsRepository)
+
+    // await gymsRepository.create({
+    //   id: 'gym-01',
+    //   title: 'Any-gym',
+    //   description: '',
+    //   phone: '',
+    //   latitude: new Decimal(0),
+    //   longitude: new Decimal(0)
+    // })
+  })
+
+  it('Should be able to fetch check-in history', async () => {
+    await checkInsRepository.create({
+      gym_id: 'gym-01',
+      user_id: 'user-01'
+    })
+
+    await checkInsRepository.create({
+      gym_id: 'gym-02',
+      user_id: 'user-01'
+    })
+
+    const { checkIns } = await sut.execute({
+      userId: 'user-01'
+    })
+
+    expect(checkIns).toHaveLength(2)
+    expect(checkIns).toEqual([
+      expect.objectContaining({ gym_id: 'gym-01' }),
+      expect.objectContaining({ gym_id: 'gym-02' })
+    ])
+  })
+})
