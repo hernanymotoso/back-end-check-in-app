@@ -16,7 +16,7 @@ type RegisterUseCaseResponse = {
 export class RegisterUseCase {
   constructor (private readonly usersRepository: UsersRepository) {}
 
-  async execure ({ name, email, password }: RegisterUseCaseRequest): Promise<RegisterUseCaseResponse> {
+  async execute ({ name, email, password }: RegisterUseCaseRequest): Promise<RegisterUseCaseResponse> {
     const password_hash = await hash(password, 6)
 
     const userWithSameEmail = await this.usersRepository.findByEmail(email)

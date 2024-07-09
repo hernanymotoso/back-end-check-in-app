@@ -17,7 +17,7 @@ type CreateGymUseCaseResponse = {
 export class CreateGymUseCase {
   constructor (private readonly gymsRepository: GymsRepository) {}
 
-  async execure ({ title, description, phone, latitude, longitude }: CreateGymUseCaseRequest): Promise<CreateGymUseCaseResponse> {
+  async execute ({ title, description, phone, latitude, longitude }: CreateGymUseCaseRequest): Promise<CreateGymUseCaseResponse> {
     const gym = await this.gymsRepository.create({
       title,
       description,
