@@ -1,9 +1,9 @@
-import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository'
-import { RegisterUseCase } from '.'
+import { PrismaGymsRepository } from '@/repositories/prisma/prisma-gyms-repository'
+import { CreateGymUseCase } from '.'
 
-export function makeRegisterUseCase() {
-  const usersRepository = new PrismaUsersRepository()
-  const registerUseCase = new RegisterUseCase(usersRepository)
+export function makeCreateGymUseCase() {
+  const gymsRepository = new PrismaGymsRepository()
+  const createGymUseCase = new CreateGymUseCase(gymsRepository)
 
-  return registerUseCase
+  return createGymUseCase
 }
