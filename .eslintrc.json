@@ -23,6 +23,7 @@
         "@typescript-eslint/space-before-function-paren": "off",
         "@typescript-eslint/method-signature-style": "off",
         "@typescript-eslint/consistent-type-definitions": "off",
-        "@typescript-eslint/no-base-to-string": "off"
+        "@typescript-eslint/no-base-to-string": "off",
+        "@typescript-eslint/consistent-type-assertions": "off"
     }
 }
